@@ -7,7 +7,7 @@ import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
-public class KmssAgent {
+public class ExtractAgent {
 	public static void premain(String agentArgs, Instrumentation ins) {
 		System.out.println("--------------javaagent-----------------");
 		ins.addTransformer(new ClassFileTransformer() {
