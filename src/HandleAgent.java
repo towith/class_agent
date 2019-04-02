@@ -7,6 +7,9 @@ import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
+/**
+ *  -javaagent:plugin-agent.jar
+ */
 public class HandleAgent {
 	public static void premain(String agentArgs, Instrumentation ins) {
 		System.out.println("--------------javaagent-----------------");
@@ -16,7 +19,8 @@ public class HandleAgent {
 															ProtectionDomain protectionDomain, byte[] classfileBuffer)
 							throws IllegalClassFormatException {
 				if (className.contains("kmss")) {
-					File file = new File("D:\\company\\xxxx-oa\\debug\\");
+					String outputDir = "D:\\company\\xxxx-oa\\debug2\\";
+					File file = new File(outputDir);
 					File file1 = new File(file, className.substring(0, className.lastIndexOf("/")));
 					if (!file1.exists()) {
 						file1.mkdirs();
